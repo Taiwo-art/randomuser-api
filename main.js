@@ -2,16 +2,17 @@ const randomUser = async() => {
     let fetchUser = await fetch("https://randomuser.me/api")
     let jsonFetchUser = await fetchUser.json()
     let userDetails = jsonFetchUser.results
+    let userD = userDetails[0]
     
-    let outputUser = `<img src="${userDetails[0].picture.large}">
-    <br> Full name: ${userDetails[0].name.title} ${userDetails[0].name.first} ${userDetails[0].name.last} 
-    <br> Home: ${userDetails[0].location.street.number}, ${userDetails[0].location.street.name} 
-    <br> State: ${userDetails[0].location.state} 
-    <br> Country: ${userDetails[0].location.country} 
-    <br> E-mail: ${userDetails[0].email} 
-    <br> DOB: ${userDetails[0].dob.date}
-    <br> Age: ${userDetails[0].dob.age}
-    <br> Phone: ${userDetails[0].phone}`   
+    let outputUser = `<img src="${userD.picture.large}">
+    <br> Full name: ${userD.name.title} ${userD.name.first} ${userD.name.last} 
+    <br> Home: ${userD.location.street.number}, ${userD.location.street.name} 
+    <br> State: ${userD.location.state} 
+    <br> Country: ${userD.location.country} 
+    <br> E-mail: ${userD.email} 
+    <br> DOB: ${userD.dob.date}
+    <br> Age: ${userD.dob.age}
+    <br> Phone: ${userD.phone}`   
  
     return document.body.innerHTML = outputUser
 }
